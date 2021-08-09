@@ -29,3 +29,8 @@ To run with different paramters, run the command:
 ``` bash
 papermill 'Redcap Status One Line Per Form.ipynb' '[NOTEBOOK NAME].ipynb' -p site '[SITE NAME'
 ```
+
+To render as an HTML file, you can append the following command at the end of the papermill command, or simply run it after papermill has come to completion:
+``` bash
+jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb'
+```
