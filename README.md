@@ -1,4 +1,4 @@
-# NCANDA Reports Dashboard
+# 📈 NCANDA Reports Dashboard
 Creating dashboard pages for NCANDA. Used for internal monitoring for SRI International.
 
 Created by: Christopher Pondoc
