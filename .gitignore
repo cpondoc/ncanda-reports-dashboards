@@ -2,3 +2,4 @@ status_reports/
 inventory_by_site/
 notebooks/.ipynb_checkpoints
 scripts/__pycache__
+.DS_Store
