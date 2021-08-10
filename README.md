@@ -27,10 +27,10 @@ File: `Redcap Status One Line Per Form.ipynb`
 ### To Run
 To run with different paramters, run the command:
 ``` bash
-papermill 'Redcap Status One Line Per Form.ipynb' '[NOTEBOOK NAME].ipynb' -p site '[SITE NAME'
+papermill 'Redcap Status One Line Per Form.ipynb' '[NOTEBOOK NAME].ipynb' -p site '[SITE NAME]' -p arm '[ARM NAME]'
 ```
 
-To render as an HTML file, you can append the following command at the end of the papermill command, or simply run it after papermill has come to completion:
+To render as an HTML file, you can append the following command at the end of the papermill command using `&&`, or simply run it after papermill has come to completion:
 ``` bash
 jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb'
 ```
@@ -48,3 +48,15 @@ File: `All Redcap Forms.ipynb`
     - Greyed-out if zero means “missing”​
     - Green means OK​
     - Light-green means OK with “less content than max” (should only be available for some forms?)
+
+### To Run
+
+In order to run, make sure to specify *all parameters*!
+``` bash
+papermill 'All Redcap Forms.ipynb' '[NOTEBOOK NAME].ipynb' -p site '[SITE NAME]' -p arm '[ARM NAME]'
+```
+
+To render as an HTML file, you can append the following command at the end of the papermill command using `&&`, or simply run it after papermill has come to completion:
+``` bash
+jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb'
+```
