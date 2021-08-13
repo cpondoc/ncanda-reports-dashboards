@@ -1,5 +1,7 @@
 status_reports/
 inventory_by_site/
-notebooks/.ipynb_checkpoints
+notebooks/.ipynb_checkpoints/
 scripts/__pycache__
 .DS_Store
+.ipynb_checkpoints/
+notebooks/local/.ipynb_checkpoints/
