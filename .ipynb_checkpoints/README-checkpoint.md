@@ -32,7 +32,7 @@ papermill 'Redcap Status One Line Per Form.ipynb' '[NOTEBOOK NAME].ipynb' -p sit
 
 To render as an HTML file, you can append the following command at the end of the papermill command using `&&`, or simply run it after papermill has come to completion:
 ``` bash
-jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb'
+jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb' --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
 ```
 
 ## Redcap Form Status Table - All-in-One
