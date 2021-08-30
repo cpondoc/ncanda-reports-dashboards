@@ -14,7 +14,7 @@ File: `SVN Reports.ipynb`
 * Dead laptops greyed out or removed entirely – the “deadness” and “SLA” metadata will need to be in a separate data/config file
 
 ### To Run
-Just open up the Jupyter Notebook and run!
+Utilize the bash script to generate all of the notebooks by typing `bash scripts/svn_execute.sh` in the command line!
 
 ## Redcap Form Status Table – One Row/Form​
 

@@ -1,4 +1,5 @@
 #!/bin/bash -i
+# Script to programmatically execute all of the SVN Reports using Bash!
 
 # cd into directory with statuses
 STATUS_DIR=status_reports
@@ -12,7 +13,8 @@ for file in *; do
 done
 popd
 
-# Syntax for Looping
+# For each site -- generate papermill notebook, then convert to HTML
 for site in ${sites[@]}; do
-    echo "$site"
+    papermill 'notebooks/SVN Reports.ipynb' samples/svn/$site.ipynb -p site $site
+    sudo jupyter nbconvert --to html samples/svn/$site.ipynb --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
 done
