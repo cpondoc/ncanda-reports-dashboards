@@ -1,12 +1,19 @@
 #!/bin/bash -i
 # Script to programmatically execute all of the SVN Reports using Bash!
 
-# cd into directory with statuses
-STATUS_DIR=status_reports
+# Directories for: SVN script, directory for dashboards, and directory for csvs
+SCRIPT_DIR=/fs/ncanda-share/beta/chris/ncanda-data-integration/scripts/reporting
+SAVE_DIR=/fs/ncanda-share/log/status_reports/sla_dashboards
+STATUS_DIR=/fs/ncanda-share/log/status_reports/sla_files
 sites=()
-pushd "$STATUS_DIR"
 
-# Copy each of the file names into the 
+# First, execute python script
+pushd "$SCRIPT_DIR"
+LC_ALL=C python3 svn_report.py
+popd
+
+# Next, head into the directory with all statuses and grab an array of all sites 
+pushd "$STATUS_DIR"
 for file in *; do
     site=${file%.csv}
     sites+=($site)
@@ -15,6 +22,6 @@ popd
 
 # For each site -- generate papermill notebook, then convert to HTML
 for site in ${sites[@]}; do
-    papermill 'notebooks/SVN Reports.ipynb' samples/svn/$site.ipynb -p site $site
-    sudo jupyter nbconvert --to html samples/svn/$site.ipynb --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
+    papermill 'notebooks/SVN Reports.ipynb' $SAVE_DIR/$site.ipynb -p site $site
+    jupyter nbconvert --to html $SAVE_DIR/$site.ipynb --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
 done
