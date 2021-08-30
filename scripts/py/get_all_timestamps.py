@@ -24,6 +24,4 @@ def main():
         print(arm)
         data_entry = api.export_records(format='df', fields=['visit_date'], events=[arm])
         data_entry.to_csv(PATH + arm + '.csv')
-   # data_entry = api.export_records(format='df', fields=['visit_date'], events=['1y_visit_arm_1'])
-    #data_entry.to_csv('/tmp/chris/sample_csv.csv')
 main()

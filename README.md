@@ -14,7 +14,20 @@ File: `SVN Reports.ipynb`
 * Dead laptops greyed out or removed entirely – the “deadness” and “SLA” metadata will need to be in a separate data/config file
 
 ### To Run
-Utilize the bash script to generate all of the notebooks by typing `bash scripts/svn_execute.sh` in the command line!
+To generate all of the notebooks, run:
+``` 
+bash scripts/bash/svn_execute.sh
+```
+
+To generate a singular notebook, run:
+``` bash
+papermill 'SVN Reports.ipynb' '[NOTEBOOK NAME].ipynb' -p site '[SITE NAME]' -p arm '[ARM NAME]'
+```
+
+To render as an HTML file, you can append the following command at the end of the papermill command using `&&`, or simply run it after papermill has come to completion:
+``` bash
+jupyter nbconvert --to html '[NOTEBOOK NAME].ipynb' --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
+```
 
 ## Redcap Form Status Table – One Row/Form​
 
